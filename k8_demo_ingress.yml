@@ -1,0 +1,15 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: ocp-nexus-ingress
+  labels:
+    app: ocp-nexus
+spec:
+  rules:
+    - host: nexus-aa-demo-solution.<apps.openshit url>
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: ocp-nexus-svc
+              servicePort: 8081

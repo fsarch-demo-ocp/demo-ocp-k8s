@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocp-nexus
+spec:
+  selector:
+    matchLabels:
+      app: ocp-nexus
+  template:
+    metadata:
+      labels:
+        app: ocp-nexus
+    spec:
+      serviceAccount: mydockeruser
+      containers:
+      - name: ocp-nexus-ct
+        image: sonatype/nexus
+        securityContext:
+          privileged: true
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 8081
