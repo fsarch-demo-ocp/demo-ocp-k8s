@@ -1,12 +1,12 @@
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
-  name: ocp-nexus-ingress
+  name: ocp-nexus
   labels:
     app: ocp-nexus
 spec:
   rules:
-    - host: nexus-aa-demo-solution.<apps.openshit url>
+    - host: ocp-nexus-demo-solution.<apps.openshit url>
       http:
         paths:
           - path: /
